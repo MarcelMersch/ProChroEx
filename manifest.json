@@ -4,8 +4,10 @@
   "version": "1.0",
   "manifest_version": 3,
   "action": {
-    "default_icon": "hello_extensions.png"
-  }, "background": {"service_worker": "background.js"},
+    "default_icon": "hello_extensions.png",
+    "default_popup": "popup.html"
+  },
+  "background": {"service_worker": "background.js"},
   "chrome_url_overrides" : {
     "newtab": "defaultPage.html"
   },
