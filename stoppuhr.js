@@ -1,78 +1,57 @@
-let startBtn = document.getElementById('start'); 
-let stopBtn = document.getElementById('stop'); 
-let resetBtn = document.getElementById('reset'); 
+let startBtn = document.getElementById('start');
+        let stopBtn = document.getElementById('stop');
+        let resetBtn = document.getElementById('reset');
 
-let hour = 0; 
-let minute = 0; 
-let second = 0; 
-let count = 0; 
+        let minute = 0;
+        let second = 5; // Hier als Test auf 5 Sekunden gesetzt
+        let timer;
 
-startBtn.addEventListener('click', function () { 
-	timer = true; 
-	stopWatch(); 
-}); 
+        startBtn.addEventListener('click', function () {
+            timer = setInterval(updateTimer, 1000);
+            startBtn.disabled = true;
+        });
 
-stopBtn.addEventListener('click', function () { 
-	timer = false; 
-}); 
+        stopBtn.addEventListener('click', function () {
+            clearInterval(timer);
+            startBtn.disabled = false;
+        });
 
-resetBtn.addEventListener('click', function () { 
-	timer = false; 
-	hour = 0; 
-	minute = 0; 
-	second = 0; 
-	count = 0; 
-	document.getElementById('hr').innerHTML = "00"; 
-	document.getElementById('min').innerHTML = "00"; 
-	document.getElementById('sec').innerHTML = "00"; 
-	document.getElementById('count').innerHTML = "00"; 
-}); 
+        resetBtn.addEventListener('click', function () {
+            clearInterval(timer);
+            minute = 0;
+            second = 5; // Hier als Test auf 5 Sekunden gesetzt
+            updateDisplay();
+            startBtn.disabled = false;
+        });
 
-function stopWatch() { 
-	if (timer) { 
-		count++; 
+        function updateTimer() {
+            if (second === 0) {
+                if (minute === 0) {
+                    clearInterval(timer);
+                    playSound(); // Ton abspielen
+                    notificationDiv.style.display = 'block';
+                    setTimeout(function() {
+                        notificationDiv.style.display = 'none';
+                    }, 5000); // Benachrichtigung nach 5 Sekunden ausblenden
+                    minute = 0;
+                    second = 5; // Zurücksetzen auf 5 Sekunden für den nächsten Test
+                    startBtn.disabled = false;
+                } else {
+                    minute--;
+                    second = 59;
+                }
+            } else {
+                second--;
+            }
+            updateDisplay();
+        }
 
-		if (count == 100) { 
-			second++; 
-			count = 0; 
-		} 
+        function updateDisplay() {
+            document.getElementById('min').textContent = minute < 10 ? '0' + minute : minute;
+            document.getElementById('sec').textContent = second < 10 ? '0' + second : second;
+        }
 
-		if (second == 60) { 
-			minute++; 
-			second = 0; 
-		} 
-
-		if (minute == 60) { 
-			hour++; 
-			minute = 0; 
-			second = 0; 
-		} 
-
-		let hrString = hour; 
-		let minString = minute; 
-		let secString = second; 
-		let countString = count; 
-
-		if (hour < 10) { 
-			hrString = "0" + hrString; 
-		} 
-
-		if (minute < 10) { 
-			minString = "0" + minString; 
-		} 
-
-		if (second < 10) { 
-			secString = "0" + secString; 
-		} 
-
-		if (count < 10) { 
-			countString = "0" + countString; 
-		} 
-
-		document.getElementById('hr').innerHTML = hrString; 
-		document.getElementById('min').innerHTML = minString; 
-		document.getElementById('sec').innerHTML = secString; 
-		document.getElementById('count').innerHTML = countString; 
-		setTimeout(stopWatch, 10); 
-	} 
-}
+        function playSound() {
+            let audio = document.getElementById('audio');
+            audio.play();
+        }
