@@ -3,12 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-
         <title>ProChroEx</title>
-       
         <link rel="stylesheet" type="text/css" href="style.css">
-        
+        <script defer src="Pomodoro.js"></script>
+        <script defer src="Hydration.js"></script>
+
     </head>
     <body>
         <h2 id="greet">Grüße!</h2>
@@ -34,9 +33,17 @@
                     <audio id="audio" src="mixkit-magical-light-moving-2584.wav"></audio>
                 </div>
             </li>
+            <li>
+                <div class="container">
+                    <h1>Hydration-Timer</h1>
+                     <div id="timerDisplay">00:00</div>
+                      <div id="progressBarContainer">
+                     <div id="progressBar">0%</div>
+                    </div>
+                  
+                </div>
+            </li>
         </ul>
-        <script src="Pomodoro.js"></script>
+       
     </body>
-
-
 </html>
