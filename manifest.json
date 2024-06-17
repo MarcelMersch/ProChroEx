@@ -8,10 +8,24 @@
     "default_popup": "popup.html"
   },
   "background": {"service_worker": "background.js"},
-  "chrome_url_overrides" : {
-    "newtab": "defaultPage.html"
-  },
   "permissions": [
-    "geolocation"
+    "storage","geolocation","notifications","declarativeNetRequest"
+  ],
+  "declarative_net_request": {
+    "rule_resources":[
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "run_at":"document_start",
+      "all-frames": true ,
+      "js": ["Hydration.js","Pomodoro.js"]
+    }
   ]
 }
