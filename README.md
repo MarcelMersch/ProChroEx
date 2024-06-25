@@ -22,23 +22,23 @@
 4. Klicke auf "Entpackte Erweiterung laden" und wähle das Verzeichnis ProChroEx aus.
    
 
-Nutzung
+## Nutzung
 
-Pomodoro-Timer
+### Pomodoro-Timer
 
     Öffne die Erweiterung und stelle den Pomodoro-Timer ein.
     Klicke auf Start, um den Timer zu beginnen, und auf Stop, um ihn anzuhalten.
     Klicke auf Reset, um den Timer zurückzusetzen.
 
-Hydration-Timer
+### Hydration-Timer
 
     Die Erweiterung beginnt automatisch, die Zeit seit dem letzten Trinkvorgang zu verfolgen und benachrichtigt dich nach einer Stunde.
 
-Fokus-Modus
+### Fokus-Modus
 
     Schalte den Fokus-Modus im Popup ein, um ablenkende Elemente auf YouTube auszublenden.
 
-Wetterinformationen
+### Wetterinformationen
 
     Die Erweiterung zeigt die aktuelle Temperatur und die Zeit bis zum nächsten Regen an.
 
