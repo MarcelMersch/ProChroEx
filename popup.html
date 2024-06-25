@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <script defer src="Pomodoro.js"></script>
         <script defer src="Hydration.js"></script>
+        <script defer src="content.js"></script>
 
     </head>
     <body>
@@ -14,7 +15,7 @@
         <ul>
             <li>Fokus Mode
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" id="checkbox">
                     <span class="slider round"></span>
                  </label>
             </li>
@@ -42,6 +43,10 @@
                     </div>
                   
                 </div>
+            </li>
+            <li> Wetter
+                <div id="temperature">Loading temperature...</div>
+                <div id="countdown">Loading countdown to rain...</div>
             </li>
         </ul>
        
