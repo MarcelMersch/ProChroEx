@@ -3,13 +3,18 @@
   "description": "V1",
   "version": "1.0",
   "manifest_version": 3,
+  "icons": {
+    "16": "X.png",
+    "48": "X.png",
+    "128": "X.png"
+  },
   "action": {
-    "default_icon": "hello_extensions.png",
+    "default_icon": "X.png",
     "default_popup": "popup.html"
   },
   "background": {"service_worker": "background.js"},
   "permissions": [
-    "storage","geolocation","notifications","declarativeNetRequest"
+    "storage","geolocation","notifications","declarativeNetRequest","activeTab"
   ],
   "declarative_net_request": {
     "rule_resources":[
@@ -25,7 +30,7 @@
       "matches": ["<all_urls>"],
       "run_at":"document_start",
       "all-frames": true ,
-      "js": ["Hydration.js","Pomodoro.js"]
+      "js": ["Hydration.js","Pomodoro.js","content.js"]
     }
   ]
 }
