@@ -1,0 +1,47 @@
+# ProChroEx
+
+## Übersicht
+**ProChroEx** ist eine Chrome-Erweiterung, die verschiedene Funktionen zur Produktivitätssteigerung bietet, einschließlich eines Pomodoro-Timers, eines Hydration-Timers, Wetterinformationen und eines Fokus-Modus für YouTube.
+
+## Funktionen
+- **Pomodoro-Timer**: Unterstützt konzentrierte Arbeitsphasen.
+- **Hydration-Timer**: Erinnerungen, um regelmäßig Wasser zu trinken.
+- **Fokus-Modus**: Blendet ablenkende Elemente auf YouTube aus.
+- **Wetterinformationen**: Zeigt die aktuelle Temperatur und einen Countdown bis zum nächsten Regen an.
+- **Werbeblocker**: Blockiert Werbeanzeigen, die durch Anfragen an `doubleclick.net` und `googleadservices.com` erstellt werden.
+
+## Installation
+
+1. Klone dieses Repository:
+   ```bash
+   git clone https://github.com/deinusername/ProChroEx.git
+2. Öffne deinen Browser und gehe zu chrome://extensions/.
+
+3. Aktiviere den Entwicklermodus.
+
+4. Klicke auf "Entpackte Erweiterung laden" und wähle das Verzeichnis ProChroEx aus.
+   
+
+Nutzung
+
+Pomodoro-Timer
+
+    Öffne die Erweiterung und stelle den Pomodoro-Timer ein.
+    Klicke auf Start, um den Timer zu beginnen, und auf Stop, um ihn anzuhalten.
+    Klicke auf Reset, um den Timer zurückzusetzen.
+
+Hydration-Timer
+
+    Die Erweiterung beginnt automatisch, die Zeit seit dem letzten Trinkvorgang zu verfolgen und benachrichtigt dich nach einer Stunde.
+
+Fokus-Modus
+
+    Schalte den Fokus-Modus im Popup ein, um ablenkende Elemente auf YouTube auszublenden.
+
+Wetterinformationen
+
+    Die Erweiterung zeigt die aktuelle Temperatur und die Zeit bis zum nächsten Regen an.
+
+
+
+
