@@ -52,7 +52,7 @@
 
    Pomodoro.js, Hydration.js und Wetter.js enthalten den JavaScript Code für die jeweiligen Funktionalitäten.
 
-   Weitere Anmerkungen zum den Funktionen sind als Kommentare im Code hinterlegt.
+   Weitere Anmerkungen zu den Funktionen sind als Kommentare im Code hinterlegt.
 
    
 
