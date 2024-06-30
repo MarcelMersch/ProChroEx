@@ -15,11 +15,21 @@
 1. Klone dieses Repository:
    ```bash
    git clone https://github.com/MarcelMersch/ProChroEx.git
+
+   Oder klicke auf den grünen "<> Code" Knopf und downloade die ZIP-Datei, entpacke diese.
+
 2. Öffne deinen Browser und gehe zu chrome://extensions/.
 
 3. Aktiviere den Entwicklermodus.
 
 4. Klicke auf "Entpackte Erweiterung laden" und wähle das Verzeichnis ProChroEx aus.
+
+
+## Entwicklung
+
+   Diese Chrome Extension wird im Rahmen einer Projektarbeit einer Hochschule entwickelt von Marcel und Yannick.
+   Dokumentation zum Code befindet sich im Reiter "Projects" bei den Tickets dort.
+   U.a. wird dort festgehalten, in welchen Dateien welche Funktionalitäten geregelt werden.
    
 
 ## Nutzung
