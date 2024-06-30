@@ -15,6 +15,7 @@
 1. Klone dieses Repository:
    ```bash
    git clone https://github.com/MarcelMersch/ProChroEx.git
+   ```
 
    Oder klicke auf den grünen "<> Code" Knopf und downloade die ZIP-Datei, entpacke diese.
 
