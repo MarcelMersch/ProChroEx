@@ -26,13 +26,6 @@
 4. Klicke auf "Entpackte Erweiterung laden" und wähle das Verzeichnis ProChroEx aus.
 
 
-## Entwicklung
-
-   Diese Chrome Extension wird im Rahmen einer Projektarbeit einer Hochschule entwickelt von Marcel und Yannick.
-   Dokumentation zum Code befindet sich im Reiter "Projects" bei den Tickets dort.
-   U.a. wird dort festgehalten, in welchen Dateien welche Funktionalitäten geregelt werden.
-   
-
 ## Nutzung
 
 ### Pomodoro-Timer
@@ -64,6 +57,10 @@
    Pomodoro.js, Hydration.js und Wetter.js enthalten den JavaScript Code für die jeweiligen Funktionalitäten.
 
    Weitere Anmerkungen zu den Funktionen sind als Kommentare im Code hinterlegt.
+
+## Entwicklung
+   
+   Diese Chrome Extension wird im Rahmen einer Projektarbeit der FOM-Hochschule entwickelt von Marcel und Yannick.
 
    
 
