@@ -50,7 +50,9 @@
 
    Popup.html enthält den Code für das Popup-Fenster, welches sich bei Anklicken auf das ProChroEx Symbol oben rechts im Browser öffnet.
 
-   
+   Pomodoro.js, Hydration.js und Wetter.js enthalten den JavaScript Code für die jeweiligen Funktionalitäten.
+
+   Weitere Anmerkungen zum den Funktionen sind als Kommentare im Code hinterlegt.
 
    
 
