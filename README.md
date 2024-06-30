@@ -42,6 +42,10 @@
 
     Die Erweiterung zeigt die aktuelle Temperatur und die Zeit bis zum nächsten Regen an.
 
+## Dokumentation
 
+   Die Datei manifest.json enthält alle notwendigen Konifgurationen für die Chrome-Erweiterung.
+
+   
 
 
