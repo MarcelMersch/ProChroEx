@@ -42,9 +42,15 @@
 
     Die Erweiterung zeigt die aktuelle Temperatur und die Zeit bis zum nächsten Regen an.
 
-## Dokumentation
+## Technische Dokumentation
 
    Die Datei manifest.json enthält alle notwendigen Konifgurationen für die Chrome-Erweiterung.
+
+   Index.html enthält den Code für das Dashboard der Erweiterung.
+
+   Popup.html enthält den Code für das Popup-Fenster, welches sich bei Anklicken auf das ProChroEx Symbol oben rechts im Browser öffnet.
+
+   
 
    
 
