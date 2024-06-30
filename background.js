@@ -1,4 +1,3 @@
-let timer = 0;
 let intervalId;
 
 chrome.runtime.onStartup.addListener(() => {
@@ -14,14 +13,28 @@ function resetAndStartTimer() {
         clearInterval(intervalId);
     }
 
-    timer = 0;
-    chrome.storage.local.set({ timer: timer }, () => {
-        intervalId = setInterval(() => {
-            timer++;
-            chrome.storage.local.set({ timer: timer });
-            console.log(`Timer: ${timer} Sekunden`);
+    const currentTime = Date.now();
 
-            if (timer >= 3600) {
+    chrome.storage.local.get(['startTime', 'lastKnownTime'], (result) => {
+        let startTime = result.startTime;
+        let lastKnownTime = result.lastKnownTime;
+
+        // If lastKnownTime is not available or a large gap exists, reset the timer
+        if (!lastKnownTime || (currentTime - lastKnownTime > 3600000)) {
+            startTime = currentTime;
+            chrome.storage.local.set({ startTime: startTime, timer: 0 });
+        }
+
+        chrome.storage.local.set({ lastKnownTime: currentTime });
+
+        intervalId = setInterval(() => {
+            const elapsedMilliseconds = Date.now() - startTime;
+            const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
+            chrome.storage.local.set({ timer: elapsedSeconds, lastKnownTime: Date.now() });
+
+            console.log(`Timer: ${elapsedSeconds} Sekunden`);
+
+            if (elapsedSeconds >= 3600) {
                 chrome.notifications.create({
                     type: 'basic',
                     iconUrl: 'hello_extensions.png',
@@ -29,10 +42,8 @@ function resetAndStartTimer() {
                     message: 'Zeit für ein Glas Wasser :)',
                     priority: 2
                 });
-                chrome.storage.local.set({ timer: 0 });
-                
-                timer = 0;
-                chrome.storage.local.set({ timer: timer });
+                startTime = Date.now();
+                chrome.storage.local.set({ startTime: startTime, timer: 0, lastKnownTime: Date.now() });
             }
         }, 1000); // 1000 ms = 1 Sekunde
     });
