@@ -82,7 +82,7 @@ function datenAbrufen(){
             });
 }
 
-//Part von Jannick
+//Part von Yannick
 
 let intervalId;
 
