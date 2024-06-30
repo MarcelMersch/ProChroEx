@@ -14,7 +14,7 @@
 
 1. Klone dieses Repository:
    ```bash
-   git clone https://github.com/deinusername/ProChroEx.git
+   git clone https://github.com/MarcelMersch/ProChroEx.git
 2. Öffne deinen Browser und gehe zu chrome://extensions/.
 
 3. Aktiviere den Entwicklermodus.
