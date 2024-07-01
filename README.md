@@ -56,6 +56,8 @@
 
    Pomodoro.js, Hydration.js und Wetter.js enthalten den JavaScript Code für die jeweiligen Funktionalitäten.
 
+   Background.js wird bei der Verwendung der Erweiterung im Hintergrund ausgeführt und enthält z.B. EventListener.
+
    Weitere Anmerkungen zu den Funktionen sind als Kommentare im Code hinterlegt.
 
 ## Entwicklung
