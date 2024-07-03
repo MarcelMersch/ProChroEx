@@ -1,105 +1,197 @@
+/* Stil für den Hintergrund */
 body {
-    width: 200px;
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+  background-color: #ffffff; /* Weißer Hintergrund */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  color: #333; /* Dunkle Textfarbe für guten Kontrast */
+  border-radius: 12px; /* Abgerundete Ecken für die Popup-Seite */
+  border: 3px solid rgb(156, 87, 212); /* Dünner goldener Rand */
+  box-sizing: border-box; /* Damit das Padding innerhalb der border bleibt */
 }
 
-ul {
-    list-style-type: none; 
-    padding: 0; 
-    width: 100%; 
-    max-width: 400px; 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Abstand zwischen den Elementen */
 }
 
-ul li {
-    display: flex; 
-    align-items: center; 
-    border-bottom: 1px solid #ccc; 
-    padding: 10px; 
-    width: 100%; 
+#logo {
+  border-radius: 50%; /* Abgerundete Ecken für das Logo */
+  width: 50px; /* Größe des Logos anpassen */
+  height: 50px; /* Größe des Logos anpassen */
 }
-h2 {
-    color: orange;
+
+
+.container {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  display: flex; /* Flexbox hinzufügen */
+  align-items: center; /* Vertikale Ausrichtung der Elemente in der Mitte */
+  gap: 10px; /* Abstand zwischen den Elementen */
+  
 }
+
+/* Stil für die Schaltflächen */
+button {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Stil für den Switch (Toggle) */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 20px;
-  }
+  position: relative;
+  display: inline-block;
   
-  .switch input { 
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(20px);
-    -ms-transform: translateX(20px);
-    transform: translateX(20px);
-  }
-  
-
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-
-  #timerDisplay {
-    font-size: 2em;
-    font-weight: bold;
-    margin-top: 20px;
-    text-align: center;
+  width: 40px; /* Kleinere Größe */
+  height: 20px; /* Kleinere Größe */
 }
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 20px; /* Anpassung an die kleinere Größe */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px; /* Kleinere Größe */
+  width: 14px; /* Kleinere Größe */
+  left: 3px; /* Anpassung an die kleinere Größe */
+  bottom: 3px; /* Anpassung an die kleinere Größe */
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #0cb322;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px); /* Anpassung an die kleinere Größe */
+}
+
+/* Stil für die Liste und die Links */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #2196F3;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #0d8bf2;
+}
+
+/* Spezifische Stile für die Elemente */
+#min, #sec, #timerDisplay {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#punkt{
+  font-size: 2em;
+  font-weight: bold;
+}
+
 #progressBarContainer {
-    width: 100%;
-    background-color: #e0e0e0;
-    margin-top: 20px;
-    border-radius: 5px;
-    overflow: hidden;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-left: 20px; /* Mehr Abstand zwischen den Elementen */
 }
+
 #progressBar {
-    height: 30px;
-    width: 0%;
-    background-color: #76c7c0;
-    text-align: center;
-    line-height: 30px;
-    color: white;
+  width: 0%;
+  height: 20px;
+  background-color: #76c7c0;
+  text-align: center;
+  line-height: 20px;
+  color: white;
 }
+
+#switchcontainer {
+  background-color: #ddd;
+  margin-top:11px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-left: 20px; /* Mehr Abstand zwischen den Elementen */
+}
+
+
+.container h1 {
+  font-size: 1.5em;
+  margin-bottom: 0; /* Kein Abstand unten */
+  margin-right: 20px; /* Abstand rechts hinzufügen */
+}
+
+#greet {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+
+/* Stil für den Link wie h1 */
+.container a {
+  text-decoration: none; /* Entfernt den Unterstrich */
+  color: #333; /* Schwarze Farbe */
+  font-size: 1.5em; /* Gleiche Schriftgröße wie h1 */
+  font-weight: bold; /* Gleiche Schriftstärke wie h1 */
+  display: inline-block; /* Macht das Link-Element inline-block für Padding und Hover-Effekte */
+  padding: 10px 20px; /* Padding hinzufügen */
+  border-radius: 8px; /* Abgerundete Ecken */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Übergangseffekte */
+  margin-left: 30%; /* Link weiter nach links verschieben */
+  
+}
+
+.container a:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Hellere Hintergrundfarbe beim Hover */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Schatteneffekt beim Hover */
+}
+
