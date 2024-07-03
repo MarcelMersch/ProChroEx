@@ -8,25 +8,33 @@
         <script defer src="Pomodoro.js"></script>
         <script defer src="Hydration.js"></script>
         <script defer src="content.js"></script>
+        <script defer src="wetter.js"></script>
 
     </head>
     <body>
-        <h2 id="greet">Grüße!</h2>
+        <div class="header">
+            <img src="x.png" id="logo" alt="ProChroEx Logo">
+            <h2 id="greet">ProChroEx</h2>
+           
+        </div>
         <ul>
-            <li>Fokus Mode
+            <li>
+                <div class="container">
+                    <h1>Fokus Mode</h1>
+                <div id="switchcontainer">
+                    
                 <label class="switch">
                     <input type="checkbox" id="checkbox">
                     <span class="slider round"></span>
                  </label>
-            </li>
-            <li>
-                <a href="index.html">Zum Dashboard</a>
+                </div>
+                </div>
             </li>
             <li>
                 <div class="container"> 
                     <h1>Pomodoro-Timer</h1> 
                     <div>
-                        <span id="min">25</span>:<span id="sec">00</span>
+                        <span id="min">25</span><span id="punkt">:</span><span id="sec">00</span>
                     </div>
                     <button id="start">Start</button>
                     <button id="stop">Stop</button>
@@ -44,10 +52,20 @@
                   
                 </div>
             </li>
-            <li> Wetter
-                <div id="temperature">Loading temperature...</div>
-                <div id="countdown">Loading countdown to rain...</div>
+            
+            <li> 
+                <div class="container">
+                    <h1>Wetter</h1>
+                <div id="temperature">Lade Temperatur...</div>
+                <div id="countdown">Lade Regencountdown...</div>
+            </div>
             </li>
+            <li>
+                <div class="container">
+                <a href="index.html">Zum Dashboard</a>
+                </div>
+            </li>
+
         </ul>
        
     </body>
