@@ -56,16 +56,4 @@ document.addEventListener('DOMContentLoaded', function() {
         let audio = document.getElementById('audio');
         audio.play();
     }
-
-    // Warte, bis die Seite vollständig geladen ist
-    window.addEventListener('load', function() {
-        hideElements();
-    });
-
-    // Falls das Dokument bereits vollständig geladen ist
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        hideElements();
-    } else {
-        document.addEventListener('DOMContentLoaded', hideElements);
-    }
 });
