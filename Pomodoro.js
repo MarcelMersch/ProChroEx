@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let stopBtn = document.getElementById('stop');
     let resetBtn = document.getElementById('reset');
 
-    let minute = 0;
-    let second = 5; // Hier als Test auf 5 Sekunden gesetzt
+    let minute = 25;
+    let second = 0; // Hier als Test auf 5 Sekunden gesetzt
     let timer;
 
     startBtn.addEventListener('click', function () {
@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     resetBtn.addEventListener('click', function () {
         clearInterval(timer);
-        minute = 0;
-        second = 5; // Hier als Test auf 5 Sekunden gesetzt
+        minute = 25;
+        second = 0; // Hier als Test auf 5 Sekunden gesetzt
         updateDisplay();
         startBtn.disabled = false;
     });
@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(function() {
                     notificationDiv.style.display = 'none';
                 }, 5000); // Benachrichtigung nach 5 Sekunden ausblenden
-                minute = 0;
-                second = 5; // Zurücksetzen auf 5 Sekunden für den nächsten Test
+                minute = 25;
+                second = 0; // Zurücksetzen auf 5 Sekunden für den nächsten Test
                 startBtn.disabled = false;
             } else {
                 minute--;
