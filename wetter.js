@@ -14,36 +14,51 @@ document.addEventListener('DOMContentLoaded', function() {
           const currentTemp = data.currentConditions.temp;
           temperatureDiv.innerHTML = `Derzeitige Temperatur: ${currentTemp}°C`;
 
+          const date = data.days[0].datetime; // Datum von heute
+
           let nextRainEvent = null;
+          const now = new Date();
+
           for (let hour of data.days[0].hours) {
+            console.log('Hour data:', hour); // Log the hour data
             if (hour.conditions && hour.conditions.toLowerCase().includes('rain')) {
-              nextRainEvent = new Date(hour.datetime);
-              break;
+              const potentialRainEvent = new Date(`${date}T${hour.datetime}`);
+              console.log('Parsed datetime:', potentialRainEvent); // Log the parsed datetime
+              if (potentialRainEvent > now) {
+                nextRainEvent = potentialRainEvent;
+                break;
+              }
             }
           }
 
-          if (nextRainEvent) {
-            const now = new Date();
+          if (nextRainEvent && !isNaN(nextRainEvent.getTime())) {
             const diff = nextRainEvent - now;
             const hours = Math.floor(diff / 1000 / 60 / 60);
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / 1000 / 60);
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            // Debugging-Logs
+            console.log('Next rain event datetime:', nextRainEvent);
+            console.log('Current time:', now);
+            console.log('Difference in milliseconds:', diff);
+            console.log('Hours:', hours, 'Minutes:', minutes);
+
             countdownDiv.innerHTML = `Es regnet in: ${hours} Stunden und ${minutes} Minuten`;
           } else {
             countdownDiv.innerHTML = 'Heute wird es bei dir nicht regnen :)';
           }
         })
         .catch(error => {
-          temperatureDiv.innerHTML = 'Error fetching weather data';
+          temperatureDiv.innerHTML = 'Fehler beim Abrufen der Wetterdaten';
           countdownDiv.innerHTML = '';
-          console.error('Error:', error);
+          console.error('Fehler:', error);
         });
     }, error => {
-      temperatureDiv.innerHTML = 'Error fetching geolocation';
+      temperatureDiv.innerHTML = 'Fehler beim Abrufen der Geolokalisierung';
       countdownDiv.innerHTML = '';
-      console.error('Geolocation Error:', error);
+      console.error('Geolokalisierungsfehler:', error);
     });
   } else {
-    temperatureDiv.innerHTML = 'Geolocation not supported by your browser';
+    temperatureDiv.innerHTML = 'Geolokalisierung wird von deinem Browser nicht unterstützt';
     countdownDiv.innerHTML = '';
   }
 });
