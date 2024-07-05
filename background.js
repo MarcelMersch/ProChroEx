@@ -123,7 +123,7 @@ function resetAndStartTimer() {
             if (elapsedSeconds >= 3600) {
                 chrome.notifications.create({
                     type: 'basic',
-                    iconUrl: 'hello_extensions.png',
+                    iconUrl: 'wasserglas.png',
                     title: 'Hydration Timer',
                     message: 'Zeit für ein Glas Wasser :)',
                     priority: 2
@@ -134,7 +134,6 @@ function resetAndStartTimer() {
         }, 1000); // 1000 ms = 1 Sekunde
     });
 }
-
 
 
 
