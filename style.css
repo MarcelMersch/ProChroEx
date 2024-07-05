@@ -23,7 +23,6 @@ body {
   height: 50px; /* Größe des Logos anpassen */
 }
 
-
 .container {
   margin-bottom: 20px;
   padding: 20px;
@@ -32,7 +31,7 @@ body {
   display: flex; /* Flexbox hinzufügen */
   align-items: center; /* Vertikale Ausrichtung der Elemente in der Mitte */
   gap: 10px; /* Abstand zwischen den Elementen */
-  
+  position: relative; /* Position relative für die Tooltip-Positionierung */
 }
 
 /* Stil für die Schaltflächen */
@@ -64,9 +63,9 @@ button:focus {
 .switch {
   position: relative;
   display: inline-block;
-  
   width: 40px; /* Kleinere Größe */
   height: 20px; /* Kleinere Größe */
+  margin-top: 12px; /* Verschiebt den Slider 20px nach unten */
 }
 
 .switch input {
@@ -133,7 +132,7 @@ a:hover {
   font-weight: bold;
 }
 
-#punkt{
+#punkt {
   font-size: 2em;
   font-weight: bold;
 }
@@ -155,14 +154,44 @@ a:hover {
   color: white;
 }
 
-#switchcontainer {
-  background-color: #ddd;
-  margin-top:11px;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-left: 20px; /* Mehr Abstand zwischen den Elementen */
+.tooltipcontainer {
+  position: relative;
+  display: inline-block; /* Container für das Icon */
 }
 
+.tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  color: grey;
+  text-align: center;
+  border: 3px solid rgb(251, 255, 22);
+  border-radius: 5px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: calc(100% + 10px); /* Position to the right of the icon */
+  transform: translateY(-50%); /* Center vertically */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* Arrow at the left of the tooltip */
+  margin-top: -5px; /* Center arrow vertically */
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+.tooltipcontainer:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
 
 .container h1 {
   font-size: 1.5em;
@@ -175,7 +204,6 @@ a:hover {
   margin-bottom: 20px;
 }
 
-
 /* Stil für den Link wie h1 */
 .container a {
   text-decoration: none; /* Entfernt den Unterstrich */
@@ -186,8 +214,7 @@ a:hover {
   padding: 10px 20px; /* Padding hinzufügen */
   border-radius: 8px; /* Abgerundete Ecken */
   transition: background-color 0.3s, box-shadow 0.3s; /* Übergangseffekte */
-  margin-left: 30%; /* Link weiter nach links verschieben */
-  
+  white-space: nowrap; /* Verhindert Zeilenumbruch */
 }
 
 .container a:hover {
@@ -195,3 +222,52 @@ a:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Schatteneffekt beim Hover */
 }
 
+.footer {
+  margin-top: auto; /* Pushes the footer to the bottom */
+  text-align: right;
+  padding: 10px;
+}
+
+.footer span {
+  display: inline-block;
+  margin-right: 10px;
+  color: rgb(197, 197, 197);
+}
+
+.footerlink {
+  color: rgb(197, 197, 197);
+  text-decoration: underline;
+}
+
+.footerlink:visited {
+  color: rgb(197, 197, 197); /* Ensures the link remains grey even after being visited */
+}
+
+.container.dashboard-link {
+  display: flex; /* Flexbox-Layout für die Elemente innerhalb des Containers */
+  align-items: center; /* Vertikale Ausrichtung der Elemente */
+  gap: 10px; /* Abstand zwischen den Elementen */
+  width: auto; /* Automatische Breite */
+}
+
+.container.dashboard-link .tooltipcontainer {
+  display: flex; /* Flexbox-Layout für die Elemente innerhalb des Containers */
+  align-items: center; /* Vertikale Ausrichtung der Elemente */
+}
+
+.container.dashboard-link a {
+  display: inline-block; /* Damit der Link nebeneinander steht */
+  text-decoration: none; /* Entfernt den Unterstrich */
+  color: #333; /* Schwarze Farbe */
+  font-size: 1.5em; /* Schriftgröße */
+  font-weight: bold; /* Schriftstärke */
+  padding: 10px 20px; /* Innenabstand */
+  border-radius: 8px; /* Abgerundete Ecken */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Übergangseffekte */
+  white-space: nowrap; /* Verhindert Zeilenumbruch */
+}
+
+.container.dashboard-link a:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Hellere Hintergrundfarbe beim Hover */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Schatteneffekt beim Hover */
+}
