@@ -13,9 +13,14 @@
     "default_popup": "popup.html"
   },
   "background": {"service_worker": "background.js"},
+
   "permissions": [
-    "storage","geolocation","notifications","declarativeNetRequest","activeTab"
+    "storage","geolocation","notifications","declarativeNetRequest","activeTab","tabs"
   ],
+
+ "host_permissions": [
+    "https://weather.visualcrossing.com/*"
+ ],
   "declarative_net_request": {
     "rule_resources":[
       {
@@ -30,7 +35,7 @@
       "matches": ["<all_urls>"],
       "run_at":"document_start",
       "all-frames": true ,
-      "js": ["Hydration.js","Pomodoro.js","content.js"]
+      "js": ["Hydration.js","Pomodoro.js","content.js","wetter.js"]
     }
   ]
 }
