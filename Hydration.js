@@ -1,8 +1,6 @@
-
 document.addEventListener('DOMContentLoaded', (event) => {
     const timerDisplay = document.getElementById('timerDisplay');
     const progressBar = document.getElementById('progressBar');
-    const audio = document.getElementById('audio2');
 
     function formatTime(seconds) {
         const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
@@ -26,5 +24,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     updateTimer();
     setInterval(updateTimer, 1000);
-
 });
