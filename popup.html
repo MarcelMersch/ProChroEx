@@ -1,72 +1,84 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ProChroEx</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script defer src="Pomodoro.js"></script>
-        <script defer src="Hydration.js"></script>
-        <script defer src="content.js"></script>
-        <script defer src="wetter.js"></script>
-
-    </head>
-    <body>
-        <div class="header">
-            <img src="x.png" id="logo" alt="ProChroEx Logo">
-            <h2 id="greet">ProChroEx</h2>
-           
-        </div>
-        <ul>
-            <li>
-                <div class="container">
-                    <h1>Fokus Mode</h1>
-                <div id="switchcontainer">
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProChroEx</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script defer src="Pomodoro.js"></script>
+    <script defer src="Hydration.js"></script>
+    <script defer src="content.js"></script>
+    <script defer src="wetter.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="x.png" id="logo" alt="ProChroEx Logo">
+        <h2 id="greet">ProChroEx</h2>
+    </div>
+    <ul>
+        <li>
+            <div class="container">
+                <div class="tooltipcontainer">
+                <h1>Fokus Mode</h1>
+                <span class="tooltip">Ist der Fokus Mode aktiviert, siehst du auf YouTube keine ablenkenden Videoempfehlungen mehr.</span>
+            </div>
+                
+                    <label class="switch">
+                        <input type="checkbox" id="checkbox">
+                        <span class="slider round"></span>
+                    </label>
                     
-                <label class="switch">
-                    <input type="checkbox" id="checkbox">
-                    <span class="slider round"></span>
-                 </label>
+                
+            </div>
+        </li>
+        <li>
+            <div class="container">
+                <div class="tooltipcontainer">
+                    <img src="tomate.png" class="tomatenicon" alt="Tomato Icon">
+                    <span class="tooltip">Der Pomodoro Timer hilft dir bei der Planung deiner Arbeits- und Pausephasen. Nach 25 Minuten Arbeit solltest du 5 Minuten Pause machen, um wieder volle Konzentration zu haben.</span>
                 </div>
+                <div>
+                    <span id="min">25</span><span id="punkt">:</span><span id="sec">00</span>
                 </div>
-            </li>
-            <li>
-                <div class="container"> 
-                    <h1>Pomodoro-Timer</h1> 
-                    <div>
-                        <span id="min">25</span><span id="punkt">:</span><span id="sec">00</span>
-                    </div>
-                    <button id="start">Start</button>
-                    <button id="stop">Stop</button>
-                    <button id="reset">Reset</button>
-                    <audio id="audio" src="mixkit-magical-light-moving-2584.wav"></audio>
+                <button id="start">Start</button>
+                <button id="stop">Stop</button>
+                <button id="reset">Reset</button>
+                <audio id="audio" src="mixkit-magical-light-moving-2584.wav"></audio>
+            </div>
+        </li>
+        <li>
+            <div class="container">
+                <div class="tooltipcontainer">
+                    <img src="wasserglas.png" class="wassericon" alt="Water Glass Icon">
+                    <span class="tooltip">Der Hydration Timer erinnert dich daran, nach einer Stunde ein Glas Wasser zu trinken. Der Timer startet wieder automatisch von vorne.</span>
                 </div>
-            </li>
-            <li>
-                <div class="container">
-                    <h1>Hydration-Timer</h1>
-                     <div id="timerDisplay">00:00</div>
-                      <div id="progressBarContainer">
-                     <div id="progressBar">0%</div>
-                    </div>
-                  
+                <div id="timerDisplay">00:00</div>
+                <div id="progressBarContainer">
+                    <div id="progressBar">0%</div>
                 </div>
-            </li>
-            
-            <li> 
-                <div class="container">
-                    <h1>Wetter</h1>
+            </div>
+        </li>
+        <li>
+            <div class="container">
+                <div class="tooltipcontainer">
+                    <img src="icons8-sonne.gif" class="Sonnenicon" alt="Sun Icon">
+                    <span class="tooltip">Hier siehst du die aktuelle Temperatur bei dir und wann es das nächste Mal regnen soll.</span>
+                </div>
                 <div id="temperature">Lade Temperatur...</div>
                 <div id="countdown">Lade Regencountdown...</div>
             </div>
-            </li>
-            <li>
-                <div class="container">
+        </li>
+        <li>
+            <div class="container dashboard-link">
+              <div class="tooltipcontainer">
                 <a href="index.html">Zum Dashboard</a>
-                </div>
-            </li>
-
-        </ul>
-       
-    </body>
+                <span class="tooltip">Das Dashboard zeigt dir interessante Daten zu deinem Nutzungsverhalten des Chrome-Browsers.</span>
+              </div>
+            </div>
+          </li>
+          
+    <div class="footer">
+        <span>Icons by <a href="https://icons8.de" class="footerlink">Icons8</a></span>
+    </div>
+</body>
 </html>
