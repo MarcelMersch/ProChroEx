@@ -1,0 +1,16 @@
+{
+    "name": "prochroex",
+    "version": "1.0.0",
+    "description": "Weather Extension for Chrome",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest"
+    },
+    "dependencies": {
+      "puppeteer": "^10.0.0",
+      "jest": "^27.0.0"
+    },
+    "author": "",
+    "license": "ISC"
+  }
+  
