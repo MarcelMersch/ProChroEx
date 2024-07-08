@@ -3,27 +3,22 @@ const puppeteer = require('puppeteer');
 
 jest.setTimeout(30000);
 
-const mockGeolocation = (latitude, longitude) => {
-  return {
-    getCurrentPosition: jest.fn((success) => {
-      success({
-        coords: {
-          latitude,
-          longitude
-        }
-      });
-    }),
-    watchPosition: jest.fn()
-  };
-};
-
 describe('Weather Extension Tests', () => {
   let browser;
   let page;
 
   beforeAll(async () => {
-    browser = await puppeteer.launch({ headless: false }); // Set headless to false to see the browser window
+    browser = await puppeteer.launch({
+      headless: false,
+      args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream'],
+    });
+
     page = await browser.newPage();
+
+    // Grant geolocation permissions
+    const context = browser.defaultBrowserContext();
+    await context.overridePermissions('file:///C:/Users/Yannick/Code/ProChroEx/popup.html', ['geolocation']);
+
     await page.goto('file:///C:/Users/Yannick/Code/ProChroEx/popup.html');
   });
 
@@ -48,12 +43,9 @@ describe('Weather Extension Tests', () => {
 
   cities.forEach(city => {
     test(`Displays weather data for ${city.name}`, async () => {
-      await page.evaluateOnNewDocument(() => {
-        navigator.geolocation = mockGeolocation(city.coords.lat, city.coords.lon);
-      });
-
+      await page.setGeolocation({ latitude: city.coords.lat, longitude: city.coords.lon });
       await page.reload();
-      
+
       // Warte auf den Ladebildschirm und danach auf den tatsächlichen Text
       await page.waitForFunction(() => {
         const temperatureElement = document.querySelector('#temperature');
@@ -64,7 +56,7 @@ describe('Weather Extension Tests', () => {
       expect(temperature).toMatch(/Derzeitige Temperatur:/);
 
       const countdown = await page.$eval('#countdown', el => el.textContent);
-      expect(countdown).toMatch(/Es regnet in:/);
+      expect(countdown).toMatch(/(Es regnet in:|Heute wird es bei dir nicht regnen :\))/);
     });
   });
 });
