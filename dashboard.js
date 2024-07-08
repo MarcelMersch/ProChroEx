@@ -1,11 +1,5 @@
-var results;
-  //Schlüssel auslesen
-  //Aufpassen: .get ist asynchronous Function
-  console.log("Daten Laden wird ausgeführt");
-
-
    chrome.storage.local.get(null, function(items) {
-  
+      
       var allKeys = Object.keys(items);
       var werte = Object.values(items);
       
@@ -14,23 +8,36 @@ var results;
       
       //####Code zum filtern auf letzte Woche noch einfügen
       
-      //Alle Werte auslesen
-      //Index 0 ist URL, Index 1 ist Dauer
-      //
-      
       //URLs nach SecondLevelDomain bereinigen
       //  \/\/\S+\.
       //Regex Ausdruck, dass vom //nach http bis zum ersten Punk Matcht. Ist ok, man konnte die TopLevel Domain noch mit auslesen.
       //Durch Array Werte iterieren und das erste Element(URL) ändern
-      //werte.forEach(function(part, index, theArray) {
-      //werte[index][0] = werte[index][0].match('\/\/\S+\.');
-      //});
-    
-      //Von jedem Eintrag die ersten 2 und letzte Stelle des Strings löschen.
-    
+      
+      for (var i = 0; i < werte.length; i++) {
+         try{
+            werte[i][0] = werte[i][0].match(/\/\/\S+\//)[0];
+         }catch{
+            try{werte[i][0] = "";}catch{}
+            
+         }   
+      }
+
+      //Letztes und erste 6 Elemente des Strings entfernen
+      for (var i = 0; i < werte.length; i++) {
+         try{
+            werte[i][0] = werte[i][0].substring(6, werte[i][0].length - 1);
+         }catch{}
+      }
+      for (var i = 0; i < werte.length; i++) {
+         try{
+            werte[i][0] = werte[i][0].match(/\S+\//)[0].substring(0,werte[i][0].match(/\S+\//)[0].length - 1);
+         }catch{}
+      }
+
+      console.log(werte);
+      
       //Nach URL gruppieren
       var urls = []
-    
     
       //Uber alle Werte iterieren und einzigartige URLS in die Liste urls einfuegen
       for (const element of werte){
@@ -45,7 +52,7 @@ var results;
         ergebnisse.push([element, 0])
       }
     
-      //Ueber alle Werte iterieren und Zeiten addieren, wenn die URLs übereinstimmen
+      //Über alle Werte iterieren und Zeiten addieren, wenn die URLs übereinstimmen
       for (const element of werte){
         for (const a of ergebnisse){
           if(element[0] == a[0]){
@@ -78,9 +85,11 @@ var results;
         sourceCount.push(x[1]);
         }
     
-         //Format der Dauer(Millisekunden) anpassen
+         //Format der Dauer von Millisekunden auf Minuten anpassen
          for (var i = 0; i < ergebnisse.length; i++){
-           ergebnisse[i][1] = ergebnisse[i][1] / 1000
+           ergebnisse[i][1] = ergebnisse[i][1] / (1000 * 60);
+           //Auf eine Nachkommastelle runden
+           ergebnisse[i][1] = ergebnisse[i][1].toFixed(1);
        }
 
     //Liste mit Objekten für CanjasJS Format erzeugen
@@ -94,7 +103,6 @@ var results;
       data.push(objekt);
    }
    
-    
     var chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
       theme: "light2", // "light1", "light2", "dark1", "dark2"
@@ -105,9 +113,10 @@ var results;
          title: "Sekunden"
       },
       data: [{        
-         type: "column",  
-         showInLegend: true, 
+         type: "pie",  
+         startAngle: 240,
          legendMarkerColor: "grey",
+         indexLabel: "{label} {y}",
          dataPoints: data
       }]
    });
