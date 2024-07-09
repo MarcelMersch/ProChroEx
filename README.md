@@ -62,7 +62,7 @@
 ## Entwicklung
    
    Diese Chrome Extension wird im Rahmen einer Projektarbeit der FOM-Hochschule entwickelt von Marcel und Yannick.
-   Das Repository ist Open-Source, das Projekt wird weiterhin von Marcel und Yannick verwaltet.
+   Das Repository ist öffentlich einsehbar, ProChroEx ist eine Open-Source Software. Das Projekt wird weiterhin von Marcel und Yannick verwaltet.
 
    
 
