@@ -2,12 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const temperatureDiv = document.getElementById('temperature');
   const countdownDiv = document.getElementById('countdown');
   const apiKey = 'P3SGFF24ZT8AEFMV3JMWHSNH5';
-
+// ermittle Standorte Koordinaten
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
 
+      //hole die Daten von der API ab
       fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}/today?unitGroup=metric&key=${apiKey}&include=current,hours`)
         .then(response => response.json())
         .then(data => {
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
           temperatureDiv.innerHTML = `Derzeitige Temperatur: ${currentTemp}°C`;
 
           const date = data.days[0].datetime; // Datum von heute
-
+// ermittle die nächste Regenzeit, und dann die Differenz zum jetzigen Zeitpunkt
           let nextRainEvent = null;
           const now = new Date();
 
