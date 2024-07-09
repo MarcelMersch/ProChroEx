@@ -53,9 +53,9 @@
 
    Pomodoro.js, Hydration.js und Wetter.js enthalten den JavaScript Code für die jeweiligen Funktionalitäten.
 
-   Die Dateien wetter.test.js und package.json sind notwendig für das Testen der globalen Nutzung der Wetter API. Außerdem benötigt man für das Testen die .js-Bibliotheken Puppeteer und Jest. Für die Installation dieser in die Kommandozeile folgenden Befehl eingeben: "npm install puppeteer jest". Danach in das Verzeichnis navigieren und in der Kommandozeile "npm test" eingeben für den Start aller Testdateien.
+   Die Dateien wetter.test.js und package.json sind notwendig für das Testen der globalen Nutzung der Wetter API. Außerdem benötigt man für das Testen die .js-Bibliotheken Puppeteer und Jest. Für die Installation dieser in die Kommandozeile folgenden bash-Befehl eingeben: "npm install puppeteer jest". Danach in das Verzeichnis navigieren und in der Kommandozeile "npm test" eingeben für den Start des Tests.
 
-   Background.js wird bei der Verwendung der Erweiterung im Hintergrund ausgeführt und enthält z.B. EventListener.
+   Background.js wird bei der Verwendung der Erweiterung im Hintergrund ausgeführt und enthält z.B. EventListener, aber auch Timerstart-Funktionen.
 
    Der Ad-Blocker wird in der Datei rules.json definiert. Die geblockten Werbeanbieter werden in den Objekten festgehalten.
 
