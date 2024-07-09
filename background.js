@@ -82,7 +82,7 @@ function datenAbrufen(){
             });
 }
 
-//Part von Yannick
+// Lass den Timer bei Browseraufruf und Installation starten
 
 let intervalId;
 
