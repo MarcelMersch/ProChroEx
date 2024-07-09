@@ -1,4 +1,3 @@
-// wetter.test.js
 const puppeteer = require('puppeteer');
 
 jest.setTimeout(30000);
@@ -15,7 +14,7 @@ describe('Weather Extension Tests', () => {
 
     page = await browser.newPage();
 
-    // Grant geolocation permissions
+    //erlaube den automatisches Standortzugriff 
     const context = browser.defaultBrowserContext();
     await context.overridePermissions('file:///C:/Users/Yannick/Code/ProChroEx/popup.html', ['geolocation']);
 
