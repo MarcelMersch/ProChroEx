@@ -1,3 +1,4 @@
+//Prüfe den Status des Fokusmode-Sliders
 document.addEventListener('DOMContentLoaded', function () {
     const checkbox = document.getElementById('checkbox');
 
@@ -26,10 +27,10 @@ chrome.storage.sync.get('focusMode', function (data) {
         toggleFocusMode(true);
     }
 });
-
+// aktiviere oder deaktiviere, je nach Status des Sliders, das CSS 
 function toggleFocusMode(focusMode) {
     if (focusMode) {
-        // Add CSS to hide distracting elements
+       
         const style = document.createElement('style');
         style.id = 'focusModeStyle';
         style.textContent = `
@@ -39,7 +40,7 @@ function toggleFocusMode(focusMode) {
         `;
         document.head.appendChild(style);
     } else {
-        // Remove the CSS
+       
         const style = document.getElementById('focusModeStyle');
         if (style) {
             style.remove();
