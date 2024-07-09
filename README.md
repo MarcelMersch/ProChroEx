@@ -57,6 +57,8 @@
 
    Background.js wird bei der Verwendung der Erweiterung im Hintergrund ausgeführt und enthält z.B. EventListener.
 
+   Der Ad-Blocker wird in der Datei rules.json definiert. Die geblockten Werbeanbieter werden in den Objekten festgehalten.
+
    Weitere Anmerkungen zu den Funktionen sind als Kommentare im Code hinterlegt.
 
 ## Entwicklung
