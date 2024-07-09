@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let minute, second, timer;
     let isRunning = false;
 
-    // Restore the timer state from storage
+    // Stelle Timerstatus aus dem Speicher wieder her
     chrome.storage.local.get(['minute', 'second', 'isRunning', 'startTime'], function(result) {
         if (result.minute !== undefined && result.second !== undefined) {
             minute = result.minute;
