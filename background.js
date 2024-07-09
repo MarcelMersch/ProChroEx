@@ -1,60 +1,53 @@
 var lastActiveTab = 0;
 
-chrome.storage.local.set({ 123: [23, 56] }).then(() => {
-  console.log("Value is set");
-});
-
-chrome.storage.local.get(["123"]).then((result) => {
-  console.log("Value is " + result[123][0]);
-});
-
-
 const map = new Map();
 
-
-//Warum kann ich gerade im local storage keine Daten abrufen? Kein Fehler, aber undefined als rueckgabe.
-
-//Muss noch erfassen, wenn sie die Website innerhalb eines Tabs ändert.
-//Wie? Current URL erfassen. Alle 5 Sek. die aktuelle URL erfassen und abgleichen?? Oder gibt es event?
-
-
-
+//Ausführung, wenn der aktive Tab gewechselt wird
 chrome.tabs.onActivated.addListener(moveToFirstPosition);
 
-chrome.tabs.onRemoved.addListener(dauerSpeichern);
+//Ausführung, wenn die URL in einem Tab geändert wird
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.url) {
+      console.log("Test1");
+      console.log("Test2");
+
+  }
+});
 
 async function moveToFirstPosition(activeInfo) {
-  
   try {
-    await chrome.tabs.move(activeInfo.tabId, {index: 0});
+    //await chrome.tabs.move(activeInfo.tabId, {index: 0});
        var zeitAktuell = Date.now();
        //TabID auslesen
        chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
-        console.log(tabs[0].url);
         my_tabid=tabs[0].id;
         //Aktuelle Zeit im Dict speichern
-        map.set(my_tabid, zeitAktuell);
+        map.set(my_tabid, [zeitAktuell, tabs[0].url]);
         //Zeit ermitteln und Dauer vom alten Tab speichern
         
         //Startzeit vom letzten Tab ermittlen. Fehler, wenn es der 1. Tab der Fensters ist.
         try{
-           var result = map.get(lastActiveTab);
-            dauer = zeitAktuell - result;
+            var result = map.get(lastActiveTab);
+            console.log(result);
+            var startZeit = result[0];
+            var letzteURL  = result[1];
+            dauer = zeitAktuell - startZeit;
             //Daten in Objekt speichern
             var obj = {};       
             var key = zeitAktuell;  
-            obj[key] = [tabs[0].url, dauer];
+            obj[key] = [letzteURL, dauer];
             
+            console.log(letzteURL);
+            console.log(dauer);
             chrome.storage.local.set(obj).then(() => {
-              console.log("Dauer gespeichert: " + dauer);
             });
 
+            //Entfernen???
             chrome.storage.local.get([String(zeitAktuell)]).then((result) => {
-              console.log("Value is " + result[zeitAktuell]);
             });
             
           }catch{
-          console.log("Fehler beim Auslesen der Zeit")
+          console.log("Fehler beim Speichern der Zeit")
         }
         //Nun die aktuelle TabId einfügen.
         lastActiveTab = my_tabid;
@@ -70,19 +63,8 @@ async function moveToFirstPosition(activeInfo) {
   }
 }
 
-async function dauerSpeichern(activeInfo){
-  console.log("Tab geschlossen")
-}
 
-function datenAbrufen(){
-  console.log("==================")
-            console.log(lastActiveTab);
-            chrome.storage.local.get([String(12345678)]).then((result) => {
-              console.log("Value is " + result[12345678]);
-            });
-}
-
-// Lass den Timer bei Browseraufruf und Installation starten
+//Part von Yannick
 
 let intervalId;
 
@@ -118,7 +100,7 @@ function resetAndStartTimer() {
             const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
             chrome.storage.local.set({ timer: elapsedSeconds, lastKnownTime: Date.now() });
 
-            console.log(`Timer: ${elapsedSeconds} Sekunden`);
+            //console.log(`Timer: ${elapsedSeconds} Sekunden`);
 
             if (elapsedSeconds >= 3600) {
                 chrome.notifications.create({
