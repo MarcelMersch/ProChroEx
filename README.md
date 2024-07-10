@@ -43,6 +43,8 @@
 
     Das Dashboard zeigt die Nutzungszeiten der vom Nutzer besuchten Webseiten an. Dies hilft, dem Nutzer sichtbar zu machen wieviel Zeit pro Woche auf welchen Webseiten verbracht wird.
 
+Eine nähere Erklärung wird beim Hovern über die Icons bzw. der Funktionen als Tooltip angezeigt.
+
 ## Technische Dokumentation
 
    Die Datei manifest.json enthält alle notwendigen Konifgurationen für die Chrome-Erweiterung.
