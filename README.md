@@ -59,7 +59,7 @@ Eine nähere Erklärung wird beim Hovern über die Icons bzw. der Funktionen als
 
    Background.js wird bei der Verwendung der Erweiterung im Hintergrund ausgeführt und enthält die EventListener für das Speichern der Nutzungszeit aber auch Timerstart-Funktionen.
 
-   In der Dashboard.js werden die gespeichert Daten der Nutzungszeit gelesen und aufbereitet. Weiterhin wird mit der Bibliothek CanvasJS das Diagramm für das Dashboard erzeugt.
+   In der Datei Dashboard.js werden die gespeicherten Daten der Nutzungszeit gelesen und aufbereitet. Weiterhin wird mit der Bibliothek CanvasJS das Diagramm für das Dashboard erzeugt.
    Die Datei canvas.min.js enthält den Code der Bibliothek CanvasJS und ist hier lokal erforderlich, da Chrome Erweiterungen keine externen Skripte laden können.
    
    Der Ad-Blocker wird in der Datei rules.json definiert. Die geblockten Werbeanbieter werden in den Objekten festgehalten.
