@@ -109,7 +109,6 @@
       //Format der Dauer von Millisekunden auf Minuten anpassen
       for (var i = 0; i < ergebnisse.length; i++){
          ergebnisse[i][1] = ergebnisse[i][1] / (1000 * 60);
-         //Auf eine Nachkommastelle runden
          ergebnisse[i][1] = ergebnisse[i][1].toFixed(1);
       }
 
