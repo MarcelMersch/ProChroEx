@@ -57,8 +57,11 @@ Eine nähere Erklärung wird beim Hovern über die Icons bzw. der Funktionen als
 
    Die Dateien wetter.test.js und package.json sind notwendig für das Testen der globalen Nutzung der Wetter API. Außerdem benötigt man für das Testen die .js-Bibliotheken Puppeteer und Jest. Für die Installation dieser in die Kommandozeile folgenden bash-Befehl eingeben: "npm install puppeteer jest". Danach in das Verzeichnis navigieren und in der Kommandozeile "npm test" eingeben für den Start des Tests.
 
-   Background.js wird bei der Verwendung der Erweiterung im Hintergrund ausgeführt und enthält z.B. EventListener, aber auch Timerstart-Funktionen.
+   Background.js wird bei der Verwendung der Erweiterung im Hintergrund ausgeführt und enthält die EventListener für das Speichern der Nutzungszeit aber auch Timerstart-Funktionen.
 
+   In der Dashboard.js werden die gespeichert Daten der Nutzungszeit gelesen und aufbereitet. Weiterhin wird mit der Bibliothek CanvasJS das Diagramm für das Dashboard erzeugt.
+   Die Datei canvas.min.js enthält den Code der Bibliothek CanvasJS und ist hier lokal erforderlich, da Chrome Erweiterungen keine externen Skripte laden können.
+   
    Der Ad-Blocker wird in der Datei rules.json definiert. Die geblockten Werbeanbieter werden in den Objekten festgehalten.
 
    Weitere Anmerkungen zu den Funktionen sind als Kommentare im Code hinterlegt.
