@@ -18,6 +18,8 @@
 
 4. Klicke auf "Entpackte Erweiterung laden" und wähle das Verzeichnis ProChroEx aus.
 
+5. Über das Puzzle Symbol oben rechts kann nun das Icon der Erweiterung angepinnt werden.
+
 
 ## Nutzung
 
